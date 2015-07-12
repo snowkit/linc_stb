@@ -17,7 +17,30 @@ class Test {
         result = stb.ImageWrite.write_tga("test.tga", 2, 2, 4, data, 0, data.length);
         trace("ImageWrite.write_tga result: " + (result == 0 ? "Error" : "Success"));
 
-        result = stb.ImageWrite.write_hdr("test.hdr", 2, 2, 4, data, 0, data.length);
+
+        var floats = new haxe.io.BytesOutput();
+
+            floats.writeFloat(1);
+            floats.writeFloat(0);
+            floats.writeFloat(0);
+            floats.writeFloat(1);
+
+            floats.writeFloat(0);
+            floats.writeFloat(1);
+            floats.writeFloat(0);
+            floats.writeFloat(1);
+
+            floats.writeFloat(0);
+            floats.writeFloat(0);
+            floats.writeFloat(1);
+            floats.writeFloat(1);
+
+            floats.writeFloat(0);
+            floats.writeFloat(0);
+            floats.writeFloat(0);
+            floats.writeFloat(1);
+
+        result = stb.ImageWrite.write_hdr("test.hdr", 2, 2, 4, floats.getBytes().getData(), 0, floats.length);
         trace("ImageWrite.write_hdr result: " + (result == 0 ? "Error" : "Success"));
     }
 
