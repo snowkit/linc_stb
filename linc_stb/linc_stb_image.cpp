@@ -1,6 +1,8 @@
 #include "./linc_stb_image.h"
 
 #define STB_IMAGE_IMPLEMENTATION
+#define STBI_FAILURE_USERMSG
+
 #include "../lib/stb_image.h"
 
 #include <hxcpp.h>
@@ -15,6 +17,16 @@ namespace linc {
         Array<unsigned char> to_haxe_bytes(unsigned char* image_bytes, int length);
         Dynamic to_image_info(int w, int h, int comp);
 
+        //errors
+
+        ::String failure_reason() {
+
+            const char* reason = stbi_failure_reason();
+
+            return ::String(reason);
+
+        } //failure_reason
+
         //info
 
         Dynamic info(char const *filename) {
@@ -24,6 +36,8 @@ namespace linc {
             int comp = 0;
 
             int res = stbi_info(filename, &w, &h, &comp);
+
+            if(!res) return null();
 
             return to_image_info(w, h, comp);
 
@@ -37,6 +51,8 @@ namespace linc {
             int comp = 0;
 
             int res = stbi_info_from_memory(&src_bytes[0], src_length, &w, &h, &comp);
+
+            if(!res) return null();
 
             return to_image_info(w, h, comp);
 

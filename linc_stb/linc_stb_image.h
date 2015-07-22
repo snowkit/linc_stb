@@ -9,6 +9,8 @@ namespace linc {
 
     namespace stb_image {
 
+        extern ::String failure_reason();
+
         extern Dynamic info(char const *filename);
         extern Dynamic info_from_memory(Array<unsigned char> src_bytes, int src_length);
 

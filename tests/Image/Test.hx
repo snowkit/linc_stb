@@ -54,7 +54,11 @@ class Test {
             var req_comp = 4;
             for(file in files) {
                 var data = stb.Image.load(haxe.io.Path.join([file_prefix,file]), req_comp);
-                print_image_data(file, data);
+                if(data == null) {
+                    trace('FAIL: DATA: $file / ' + stb.Image.failure_reason());
+                } else {
+                    print_image_data(file, data);
+                }
                 data = null;
             }
 
@@ -63,7 +67,11 @@ class Test {
         inline function test_file_info() {
             for(file in files) {
                 var info = stb.Image.info(haxe.io.Path.join([file_prefix,file]));
-                print_image_info(file, info);
+                if(info == null) {
+                    trace('FAIL: INFO: $file / ' + stb.Image.failure_reason());
+                } else {
+                    print_image_info(file, info);
+                }
                 info = null;
             }
         } //test_file_info
