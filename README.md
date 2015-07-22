@@ -4,5 +4,5 @@ Haxe/hxcpp @:native bindings for [stb](https://github.com/nothings/stb). This is
 
 ### Available stb libraries (so far)
 
-- stb_image (@stbachmann and @underscorediscovery)
-- stb_image_write (@stbachmann)
+- ##### stb_image ([stbachmann](https://github.com/stbachmann) and [underscorediscovery](https://github.com/underscorediscovery))
+- ##### stb_image_write ([stbachmann](https://github.com/stbachmann))
