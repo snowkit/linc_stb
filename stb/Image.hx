@@ -2,16 +2,32 @@ package stb;
 
 import haxe.io.BytesData;
 
-typedef ImageData = {
+
+typedef ImageInfo = {
     var w: Int;
     var h: Int;
     var comp: Int;
+} //ImageInfo
+
+typedef ImageData = {
+
+    > ImageInfo,
+
     var req_comp: Int;
     var bytes: BytesData;
-}
+
+} //ImageData
+
 
 @:include('../linc_stb/linc_stb_image.h')
 extern class Image {
+
+    @:native("linc::stb_image::info")
+    static function info(filename:String) : ImageInfo;
+
+    @:native("linc::stb_image::info_from_memory")
+    static function info_from_memory(bytes:BytesData, length:Int) : ImageInfo;
+
 
     @:native("linc::stb_image::load")
     static function load(filename:String, req_comp:Int = 0) : ImageData;

@@ -13,8 +13,37 @@ namespace linc {
 
         Dynamic to_image_data(Array<unsigned char> bytes, int w, int h, int comp, int req_comp);
         Array<unsigned char> to_haxe_bytes(unsigned char* image_bytes, int length);
+        Dynamic to_image_info(int w, int h, int comp);
 
-        //
+        //info
+
+        Dynamic info(char const *filename) {
+
+            int w = 0;
+            int h = 0;
+            int comp = 0;
+
+            int res = stbi_info(filename, &w, &h, &comp);
+
+            return to_image_info(w, h, comp);
+
+        } //info
+
+        Dynamic info_from_memory(Array<unsigned char> src_bytes, int src_length) {
+
+
+            int w = 0;
+            int h = 0;
+            int comp = 0;
+
+            int res = stbi_info_from_memory(&src_bytes[0], src_length, &w, &h, &comp);
+
+            return to_image_info(w, h, comp);
+
+        } //info_from_memory
+
+
+        //load
 
         Dynamic load(char const *filename, int req_comp) {
 
@@ -62,6 +91,18 @@ namespace linc {
             return haxe_bytes;
 
         } //to_haxe_bytes
+
+        Dynamic to_image_info(int w, int h, int comp) {
+
+            hx::Anon result = hx::Anon_obj::Create();
+
+                result->Add(HX_CSTRING("w"), w);
+                result->Add(HX_CSTRING("h"), h);
+                result->Add(HX_CSTRING("comp"), comp);
+
+            return result;
+
+        } //to_image_info
 
         Dynamic to_image_data(Array<unsigned char> bytes, int w, int h, int comp, int req_comp) {
 
