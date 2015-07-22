@@ -1,5 +1,4 @@
-#ifndef _LINC_STB_IMAGE_WRITE_CPP_
-#define _LINC_STB_IMAGE_WRITE_CPP_
+#include "./linc_stb_image_write.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "../lib/stb_image_write.h"
@@ -37,5 +36,3 @@ namespace linc {
     } //stb_image_write namespace
 
 } //linc
-
-#endif //_LINC_STB_IMAGE_WRITE_CPP_
