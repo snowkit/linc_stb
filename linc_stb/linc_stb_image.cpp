@@ -12,6 +12,7 @@ namespace linc {
         //forward
 
         Dynamic to_image_data(Array<unsigned char> bytes, int w, int h, int comp, int req_comp);
+        Array<unsigned char> to_haxe_bytes(unsigned char* image_bytes, int length);
 
         //
 
@@ -25,13 +26,7 @@ namespace linc {
 
             if(!image_bytes) return null();
 
-            unsigned int length = w * h * comp;
-
-            Array<unsigned char> bytes = new Array_obj<unsigned char>(length,length);
-
-            memcpy(bytes->GetBase(), image_bytes, length);
-
-            stbi_image_free(image_bytes);
+            Array<unsigned char> bytes = to_haxe_bytes(image_bytes, w * h * comp);
 
             return to_image_data(bytes, w, h, comp, req_comp);
 
@@ -47,17 +42,26 @@ namespace linc {
 
             if(!image_bytes) return null();
 
-            unsigned int length = w * h * comp;
-
-            Array<unsigned char> bytes = new Array_obj<unsigned char>(length,length);
-
-            memcpy(bytes->GetBase(), image_bytes, length);
-
-            stbi_image_free(image_bytes);
+            Array<unsigned char> bytes = to_haxe_bytes(image_bytes, w * h * comp);
 
             return to_image_data(bytes, w, h, comp, req_comp);
 
         } //load_from_memory
+
+    //helpers
+
+            //note this calls stb_image_free on the image_bytes
+        Array<unsigned char> to_haxe_bytes(unsigned char* image_bytes, int length) {
+
+            Array<unsigned char> haxe_bytes = new Array_obj<unsigned char>(length,length);
+
+            memcpy(haxe_bytes->GetBase(), image_bytes, length);
+
+            stbi_image_free(image_bytes);
+
+            return haxe_bytes;
+
+        } //to_haxe_bytes
 
         Dynamic to_image_data(Array<unsigned char> bytes, int w, int h, int comp, int req_comp) {
 
