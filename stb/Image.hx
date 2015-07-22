@@ -14,7 +14,10 @@ typedef ImageData = {
 extern class Image {
 
     @:native("linc::stb_image::load")
-    static function load(filename:String, req_comp:Int) : ImageData;
+    static function load(filename:String, req_comp:Int = 0) : ImageData;
+
+    @:native("linc::stb_image::load_from_memory")
+    static function load_from_memory(bytes:BytesData, length:Int, req_comp:Int = 0) : ImageData;
 
 } //Image
 

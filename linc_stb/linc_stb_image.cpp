@@ -9,7 +9,13 @@ namespace linc {
 
     namespace stb_image {
 
-        extern Dynamic load(char const *filename, int req_comp) {
+        //forward
+
+        Dynamic to_image_data(Array<unsigned char> bytes, int w, int h, int comp, int req_comp);
+
+        //
+
+        Dynamic load(char const *filename, int req_comp) {
 
             int w = 0;
             int h = 0;
@@ -20,11 +26,40 @@ namespace linc {
             if(!image_bytes) return null();
 
             unsigned int length = w * h * comp;
+
             Array<unsigned char> bytes = new Array_obj<unsigned char>(length,length);
 
             memcpy(bytes->GetBase(), image_bytes, length);
 
             stbi_image_free(image_bytes);
+
+            return to_image_data(bytes, w, h, comp, req_comp);
+
+        } //load
+
+        Dynamic load_from_memory(Array<unsigned char> src_bytes, int src_length, int req_comp) {
+
+            int w = 0;
+            int h = 0;
+            int comp = 0;
+
+            unsigned char* image_bytes = stbi_load_from_memory(&src_bytes[0], src_length, &w, &h, &comp, req_comp);
+
+            if(!image_bytes) return null();
+
+            unsigned int length = w * h * comp;
+
+            Array<unsigned char> bytes = new Array_obj<unsigned char>(length,length);
+
+            memcpy(bytes->GetBase(), image_bytes, length);
+
+            stbi_image_free(image_bytes);
+
+            return to_image_data(bytes, w, h, comp, req_comp);
+
+        } //load_from_memory
+
+        Dynamic to_image_data(Array<unsigned char> bytes, int w, int h, int comp, int req_comp) {
 
             hx::Anon result = hx::Anon_obj::Create();
 
@@ -36,7 +71,7 @@ namespace linc {
 
             return result;
 
-        } //load
+        } //to_image_data
 
     } //stb_image namespace
 
