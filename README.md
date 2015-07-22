@@ -4,8 +4,8 @@ Haxe/hxcpp @:native bindings for [stb](https://github.com/nothings/stb). This is
 
 ### Available stb libraries (so far)
 
-- [stb_image](#)
-- [stb_image_write](#)
+- [stb_image](#stb_image)
+- [stb_image_write](#stb_image_write)
 
 ---
 
