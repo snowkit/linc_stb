@@ -28,13 +28,11 @@ extern class Image {
     @:native("linc::stb_image::info_from_memory")
     static function info_from_memory(bytes:BytesData, length:Int) : ImageInfo;
 
-
     @:native("linc::stb_image::load")
     static function load(filename:String, req_comp:Int = 0) : ImageData;
 
     @:native("linc::stb_image::load_from_memory")
     static function load_from_memory(bytes:BytesData, length:Int, req_comp:Int = 0) : ImageData;
-
 
     // static function load_from_callbacks(length:Int, req_comp:Int = 0) : ImageData;
 

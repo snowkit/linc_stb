@@ -77,11 +77,14 @@ class Test {
 
         trace('DATA:  $file ${image.w} x ${image.w} comp:${image.comp} req_comp:${image.comp} / ${image.bytes.length} bytes');
 
+        var s = '';
+
         for(i in 0 ... image.w) {
-            var s = '';
             for(j in 0 ... image.comp) s += ' ${image.bytes[i*j]}';
-            trace(s);
+            if(i < image.w-1) s += ' /';
         }
+
+        trace(s);
 
     } //print_image_data
 
