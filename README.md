@@ -2,5 +2,7 @@
 
 Haxe/hxcpp @:native bindings for [stb](https://github.com/nothings/stb). This is a [linc](#) library.
 
-### Libraries ported
-- stb_image_write
+### Available stb libraries (so far)
+
+- stb_image (@stbachmann and @underscorediscovery)
+- stb_image_write (@stbachmann)
