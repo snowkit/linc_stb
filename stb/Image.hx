@@ -18,8 +18,9 @@ typedef ImageData = {
 
 } //ImageData
 
-
-@:include('../linc_stb/linc_stb_image.h')
+@:keep
+@:build(linc.Touch.apply())
+@:include('linc_stb_image.h')
 extern class Image {
 
     //info
@@ -69,11 +70,5 @@ extern class Image {
 } //Image
 
 
-@:buildXml("
-<set name='LINC_STB_LIB_PATH' value='${haxelib:linc_stb}'/>
-<files id='haxe'>
-    <compilerflag value='-I${LINC_STB_LIB_PATH}/lib/'/>
-    <file name='${LINC_STB_LIB_PATH}/linc_stb/linc_stb_image.cpp' />
-</files>
-")
-@:keep private class ImageLinc { function __init__(){} }
+@:buildXml("<include name='${haxelib:linc_stb}/linc/linc_stb_image.xml'/>")
+@:keep private class ImageLinc {}

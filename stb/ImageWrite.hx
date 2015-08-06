@@ -2,7 +2,9 @@ package stb;
 
 import haxe.io.BytesData;
 
-@:include('../linc_stb/linc_stb_image_write.h')
+@:keep
+@:build(linc.Touch.apply())
+@:include('linc_stb_image_write.h')
 extern class ImageWrite {
 
 	@:native("linc::stb_image_write::write_bmp")
@@ -20,11 +22,5 @@ extern class ImageWrite {
 } //ImageWrite
 
 
-@:buildXml("
-<set name='LINC_STB_LIB_PATH' value='${haxelib:linc_stb}'/>
-<files id='haxe'>
-    <compilerflag value='-I${LINC_STB_LIB_PATH}/lib/'/>
-    <file name='${LINC_STB_LIB_PATH}/linc_stb/linc_stb_image_write.cpp' />
-</files>
-")
-@:keep private class ImageWriteLinc { function __init__(){} }
+@:buildXml("<include name='${haxelib:linc_stb}/linc/linc_stb_image_write.xml'/>")
+@:keep private class ImageWriteLinc {}

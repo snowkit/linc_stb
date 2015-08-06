@@ -24,10 +24,6 @@ class Test {
 
     }
 
-    // a simple macro to force compilation each time
-    // allowing faster iteration
-    static inline var forcer:String = Forcer.get();
-
 } //Test
 
 class HDRWrite {
@@ -60,7 +56,5 @@ class HDRWrite {
         trace("ImageWrite.write_hdr result: " + (result == 0 ? "Error" : "Success"));
 
     } //test
-
-    static inline var forcer:String = Forcer.get();
 
 } //HDRWrite
