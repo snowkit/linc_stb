@@ -83,7 +83,7 @@ class Test {
 
     static function print_image_data(file:String, image:stb.Image.ImageData) {
 
-        trace('DATA:  $file ${image.w} x ${image.w} comp:${image.comp} req_comp:${image.comp} / ${image.bytes.length} bytes');
+        trace('DATA:  $file ${image.w} x ${image.h} comp:${image.comp} req_comp:${image.comp} / ${image.bytes.length} bytes');
 
         var s = '';
 
