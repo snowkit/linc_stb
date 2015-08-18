@@ -21,6 +21,7 @@ typedef ImageData = {
 @:keep
 @:build(linc.Touch.apply())
 @:include('linc_stb_image.h')
+@:buildXml("<include name='${haxelib:linc_stb}/linc/linc_stb_image.xml'/>")
 extern class Image {
 
     //info
@@ -68,7 +69,3 @@ extern class Image {
         static function ldr_to_hdr_scale(scale:Float):Void;
 
 } //Image
-
-
-@:buildXml("<include name='${haxelib:linc_stb}/linc/linc_stb_image.xml'/>")
-@:keep private class ImageLinc {}

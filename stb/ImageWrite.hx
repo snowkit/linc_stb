@@ -5,6 +5,7 @@ import haxe.io.BytesData;
 @:keep
 @:build(linc.Touch.apply())
 @:include('linc_stb_image_write.h')
+@:buildXml("<include name='${haxelib:linc_stb}/linc/linc_stb_image_write.xml'/>")
 extern class ImageWrite {
 
 	@:native("linc::stb_image_write::write_bmp")
@@ -20,7 +21,3 @@ extern class ImageWrite {
 	static function write_png(filename:String, x:Int, y:Int, comp:Int, bytes:BytesData, byteOffset:Int, byteLength:Int, stride_in_bytes:Int):Int;
 
 } //ImageWrite
-
-
-@:buildXml("<include name='${haxelib:linc_stb}/linc/linc_stb_image_write.xml'/>")
-@:keep private class ImageWriteLinc {}

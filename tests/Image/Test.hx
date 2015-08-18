@@ -1,3 +1,8 @@
+
+    #if (!mac && !android && !ios && !linux && !windows)
+        #error "You should define a target, please read and modify build.hxml"
+    #end
+
 class Test {
 
     static function main() {
