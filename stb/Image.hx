@@ -19,9 +19,9 @@ typedef ImageData = {
 } //ImageData
 
 @:keep
-@:build(linc.Touch.apply())
+@:build(linc.Linc.touch())
+@:build(linc.Linc.xml('stb_image'))
 @:include('linc_stb_image.h')
-@:buildXml("<include name='${haxelib:linc_stb}/linc/linc_stb_image.xml'/>")
 extern class Image {
 
     //info

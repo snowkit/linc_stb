@@ -2,7 +2,7 @@
 -resource image.png@image.png
 -cpp cpp/
 -cp ../../
-
+-cmd cpp/Test
 # pick a target
 
 #-D mac
