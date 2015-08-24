@@ -4,6 +4,9 @@ Haxe/hxcpp @:native bindings for [stb](https://github.com/nothings/stb).
 This is a [linc](http://snowkit.github.io/linc/) library.
 
 ---
+### Install
+
+`haxelib git linc_stb https://github.com/snowkit/linc_stb.git`
 
 ### Available stb libraries (so far)
 
