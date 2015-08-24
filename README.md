@@ -1,11 +1,17 @@
 # linc/stb
+Haxe/hxcpp @:native bindings for [stb](https://github.com/nothings/stb).
 
-Haxe/hxcpp @:native bindings for [stb](https://github.com/nothings/stb). This is a [linc](#) library.
+This is a [linc](http://snowkit.github.io/linc/) library.
+
+---
 
 ### Available stb libraries (so far)
 
 - [stb_image](#stb_image)
 - [stb_image_write](#stb_image_write)
+
+
+Each library has their own readme within the header files in lib/
 
 ---
 
@@ -13,7 +19,7 @@ Haxe/hxcpp @:native bindings for [stb](https://github.com/nothings/stb). This is
 - port by
   - [underscorediscovery](https://github.com/underscorediscovery)
 - notes
-  - none
+  - see tests/Image
 
 ---
 
@@ -21,4 +27,4 @@ Haxe/hxcpp @:native bindings for [stb](https://github.com/nothings/stb). This is
 - port by
   - [stbachmann](https://github.com/stbachmann)
 - notes
-  - none
+  - see tests/ImageWrite
