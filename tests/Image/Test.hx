@@ -103,7 +103,7 @@ class Test {
 
     static function print_image_info(file:String, image:stb.Image.ImageInfo) {
 
-        trace('INFO:  $file ${image.w} x ${image.w} comp:${image.comp}');
+        trace('INFO:  $file ${image.w} x ${image.h} comp:${image.comp}');
 
     } //print_image_info
 
