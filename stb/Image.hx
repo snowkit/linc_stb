@@ -3,20 +3,20 @@ package stb;
 import haxe.io.BytesData;
 
 
-typedef ImageInfo = {
+typedef StbImageInfo = {
     var w: Int;
     var h: Int;
     var comp: Int;
-} //ImageInfo
+} //StbImageInfo
 
-typedef ImageData = {
+typedef StbImageData = {
 
-    > ImageInfo,
+    > StbImageInfo,
 
     var req_comp: Int;
     var bytes: BytesData;
 
-} //ImageData
+} //StbImageData
 
 @:keep
 @:build(linc.Linc.touch())
@@ -27,20 +27,20 @@ extern class Image {
     //info
 
         @:native("linc::stb_image::info")
-        static function info(filename:String) : ImageInfo;
+        static function info(filename:String) : StbImageInfo;
 
         @:native("linc::stb_image::info_from_memory")
-        static function info_from_memory(bytes:BytesData, length:Int) : ImageInfo;
+        static function info_from_memory(bytes:BytesData, length:Int) : StbImageInfo;
 
         // info_from_callbacks
 
     //load
 
         @:native("linc::stb_image::load")
-        static function load(filename:String, req_comp:Int = 0) : ImageData;
+        static function load(filename:String, req_comp:Int = 0) : StbImageData;
 
         @:native("linc::stb_image::load_from_memory")
-        static function load_from_memory(bytes:BytesData, length:Int, req_comp:Int = 0) : ImageData;
+        static function load_from_memory(bytes:BytesData, length:Int, req_comp:Int = 0) : StbImageData;
 
         // load_from_callbacks
 
