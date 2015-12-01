@@ -19,8 +19,10 @@ typedef StbImageData = {
 } //StbImageData
 
 @:keep
+#if !display
 @:build(linc.Linc.touch())
 @:build(linc.Linc.xml('stb_image'))
+#end
 @:include('linc_stb_image.h')
 extern class Image {
 

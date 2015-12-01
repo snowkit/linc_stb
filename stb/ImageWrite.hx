@@ -3,8 +3,10 @@ package stb;
 import haxe.io.BytesData;
 
 @:keep
+#if !display
 @:build(linc.Linc.touch())
 @:build(linc.Linc.xml('stb_image_write'))
+#end
 @:include('linc_stb_image_write.h')
 extern class ImageWrite {
 
