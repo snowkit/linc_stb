@@ -86,7 +86,7 @@ class Test {
 
     } //test_files
 
-    static function print_image_data(file:String, image:stb.Image.ImageData) {
+    static function print_image_data(file:String, image:stb.Image.StbImageData) {
 
         trace('DATA:  $file ${image.w} x ${image.h} comp:${image.comp} req_comp:${image.comp} / ${image.bytes.length} bytes');
 
@@ -101,7 +101,7 @@ class Test {
 
     } //print_image_data
 
-    static function print_image_info(file:String, image:stb.Image.ImageInfo) {
+    static function print_image_info(file:String, image:stb.Image.StbImageInfo) {
 
         trace('INFO:  $file ${image.w} x ${image.h} comp:${image.comp}');
 
