@@ -23,6 +23,8 @@ namespace linc {
 
             const char* reason = stbi_failure_reason();
 
+            if(!reason) return null();
+
             return ::String(reason);
 
         } //failure_reason
