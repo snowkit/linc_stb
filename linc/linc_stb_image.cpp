@@ -17,6 +17,9 @@ namespace linc {
         Array<unsigned char> to_haxe_bytes(unsigned char* image_bytes, int length);
         Dynamic to_image_info(int w, int h, int comp);
 
+            //fudge this to cause a recompile when stb_image.h updates
+        static int force_recompile = 1;
+
         //errors
 
         ::String failure_reason() {
@@ -73,7 +76,7 @@ namespace linc {
 
             if(!image_bytes) return null();
 
-            Array<unsigned char> bytes = to_haxe_bytes(image_bytes, w * h * comp);
+            Array<unsigned char> bytes = to_haxe_bytes(image_bytes, w * h * req_comp);
 
             return to_image_data(bytes, w, h, comp, req_comp);
 
@@ -89,7 +92,7 @@ namespace linc {
 
             if(!image_bytes) return null();
 
-            Array<unsigned char> bytes = to_haxe_bytes(image_bytes, w * h * comp);
+            Array<unsigned char> bytes = to_haxe_bytes(image_bytes, w * h * req_comp);
 
             return to_image_data(bytes, w, h, comp, req_comp);
 
