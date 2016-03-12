@@ -51,6 +51,10 @@ extern class Image {
         @:native("linc::stb_image::failure_reason")
         static function failure_reason() : String;
 
+    //utility
+
+        @:native("stbi_set_flip_vertically_on_load")
+        static function stbi_set_flip_vertically_on_load(flag:Int):Void;
 
     //hdr
 
