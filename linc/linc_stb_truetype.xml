@@ -1,0 +1,9 @@
+<xml>
+
+    <files id='haxe'>
+        <compilerflag value='-I${LINC_STB_TRUETYPE_PATH}/lib/'/>
+        <compilerflag value='-I${LINC_STB_TRUETYPE_PATH}/linc/'/>
+        <file name='${LINC_STB_TRUETYPE_PATH}/linc/linc_stb_truetype.cpp' />
+    </files>
+
+</xml>
