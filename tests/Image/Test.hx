@@ -54,9 +54,8 @@ class Test {
             'image.hdr',
         ];
 
-        inline function test_file_data() {
+        inline function test_file_data(req_comp:Int) {
 
-            var req_comp = 4;
             for(file in files) {
                 var data = stb.Image.load(haxe.io.Path.join([file_prefix,file]), req_comp);
                 if(data == null) {
@@ -82,7 +81,8 @@ class Test {
         } //test_file_info
 
         test_file_info();
-        test_file_data();
+        test_file_data(4); 
+        test_file_data(0); // tests default value case
 
     } //test_files
 

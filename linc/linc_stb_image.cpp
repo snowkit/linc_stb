@@ -76,6 +76,9 @@ namespace linc {
 
             if(!image_bytes) return null();
 
+            if(req_comp == 0)
+                req_comp = comp;
+
             Array<unsigned char> bytes = to_haxe_bytes(image_bytes, w * h * req_comp);
 
             return to_image_data(bytes, w, h, comp, req_comp);
@@ -91,6 +94,9 @@ namespace linc {
             unsigned char* image_bytes = stbi_load_from_memory(&src_bytes[0], src_length, &w, &h, &comp, req_comp);
 
             if(!image_bytes) return null();
+            
+            if(req_comp == 0)
+                req_comp = comp;
 
             Array<unsigned char> bytes = to_haxe_bytes(image_bytes, w * h * req_comp);
 
