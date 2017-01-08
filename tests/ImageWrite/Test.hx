@@ -57,7 +57,11 @@ class HDRWrite {
             floats.writeFloat(0);
             floats.writeFloat(1);
 
-        var result = stb.ImageWrite.write_hdr("test.hdr", 2, 2, 4, floats.getBytes().getData(), 0, floats.length);
+        var size = floats.length;
+        var bytes = floats.getBytes();
+        var bytes_data = bytes.getData();
+
+        var result = stb.ImageWrite.write_hdr("test.hdr", 2, 2, 4, bytes_data, 0, size);
         trace("ImageWrite.write_hdr result: " + (result == 0 ? "Error" : "Success"));
 
     } //test
