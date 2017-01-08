@@ -1,9 +1,8 @@
-#ifndef _LINC_STB_IMAGE_WRITE_H_
-#define _LINC_STB_IMAGE_WRITE_H_
-
-#include "../lib/stb_image_write.h"
+#pragma once
 
 #include <hxcpp.h>
+
+#include "../lib/stb_image_write.h"
 
 namespace linc {
 
@@ -24,5 +23,3 @@ namespace linc {
     } //stb_image_write namespace
 
 } //linc
-
-#endif //_LINC_STB_IMAGE_WRITE_H_

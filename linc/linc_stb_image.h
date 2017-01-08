@@ -1,9 +1,8 @@
-#ifndef _LINC_STB_IMAGE_H_
-#define _LINC_STB_IMAGE_H_
-
-#include "../lib/stb_image.h"
+#pragma once
 
 #include <hxcpp.h>
+
+#include "../lib/stb_image.h"
 
 namespace linc {
 
@@ -20,5 +19,3 @@ namespace linc {
     } //stb_image namespace
 
 } //linc
-
-#endif //_LINC_STB_IMAGE_H_
