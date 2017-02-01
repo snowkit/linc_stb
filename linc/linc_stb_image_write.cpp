@@ -1,9 +1,9 @@
+#include <hxcpp.h>
+
 #include "./linc_stb_image_write.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "../lib/stb_image_write.h"
-
-#include <hxcpp.h>
 
 namespace linc {
 

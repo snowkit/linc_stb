@@ -1,11 +1,11 @@
+#include <hxcpp.h>
+
 #include "./linc_stb_image.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_FAILURE_USERMSG
 
 #include "../lib/stb_image.h"
-
-#include <hxcpp.h>
 
 namespace linc {
 

@@ -1,3 +1,5 @@
+#include <hxcpp.h>
+
 #include "./linc_stb_truetype.h"
 
 #define STB_TRUETYPE_IMPLEMENTATION
@@ -5,7 +7,6 @@
 #include "../lib/stb_rect_pack.h"
 #include "../lib/stb_truetype.h"
 
-#include <hxcpp.h>
 #include <stdio.h>
 
 namespace linc {
