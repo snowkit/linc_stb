@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef HXCPP_H
 #include <hxcpp.h>
+#endif
 
 #include "../lib/stb_image.h"
 
