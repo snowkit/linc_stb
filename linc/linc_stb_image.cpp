@@ -95,7 +95,7 @@ namespace linc {
             unsigned char* image_bytes = stbi_load_from_memory(&src_bytes[0], src_length, &w, &h, &comp, req_comp);
 
             if(!image_bytes) return null();
-            
+
             if(req_comp == 0)
                 req_comp = comp;
 
@@ -104,6 +104,58 @@ namespace linc {
             return to_image_data(bytes, w, h, comp, req_comp);
 
         } //load_from_memory
+
+        //loadf
+
+        Dynamic loadf(char const *filename, int req_comp) {
+
+            int w = 0;
+            int h = 0;
+            int comp = 0;
+
+            float* image_bytes = stbi_loadf(filename, &w, &h, &comp, req_comp);
+
+            if(!image_bytes) return null();
+
+            if(req_comp == 0)
+                req_comp = comp;
+
+            Array<unsigned char> bytes = to_haxe_bytes((unsigned char*)image_bytes, w * h * req_comp * 4); //*4 = bytes per component
+
+            return to_image_data(bytes, w, h, comp, req_comp);
+
+        } //load
+
+        Dynamic loadf_from_memory(Array<unsigned char> src_bytes, int src_length, int req_comp) {
+
+            int w = 0;
+            int h = 0;
+            int comp = 0;
+
+            float* image_bytes = stbi_loadf_from_memory(&src_bytes[0], src_length, &w, &h, &comp, req_comp);
+
+            if(!image_bytes) return null();
+
+            if(req_comp == 0)
+                req_comp = comp;
+
+            Array<unsigned char> bytes = to_haxe_bytes((unsigned char*)image_bytes, w * h * req_comp * 4); //*4 = bytes per component
+
+            return to_image_data(bytes, w, h, comp, req_comp);
+
+        } //load_from_memory
+
+        bool is_hdr(char const *filename) {
+
+            return stbi_is_hdr(filename);
+
+        } //is_hdr
+
+        bool is_hdr_from_memory(Array<unsigned char> src_bytes, int src_length) {
+
+            return stbi_is_hdr_from_memory(&src_bytes[0], src_length);
+
+        } //is_hdr_from_memory
 
     //helpers
 

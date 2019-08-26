@@ -58,9 +58,19 @@ extern class Image {
 
     //hdr
 
-        // loadf
-        // loadf_from_memory
+        @:native("linc::stb_image::loadf")
+        static function loadf(filename:String, req_comp:Int = 0) : StbImageData;
+
+        @:native("linc::stb_image::loadf_from_memory")
+        static function loadf_from_memory(bytes:BytesData, length:Int, req_comp:Int = 0) : StbImageData;
+
         // loadf_from_callbacks
+
+        @:native("linc::stb_image::is_hdr")
+        static function is_hdr(filename:String) : Bool;
+
+        @:native("linc::stb_image::is_hdr_from_memory")
+        static function is_hdr_from_memory(bytes:BytesData, length:Int) : Bool;
 
         @:native("stbi_hdr_to_ldr_gamma")
         static function hdr_to_ldr_gamma(gamma:Float):Void;

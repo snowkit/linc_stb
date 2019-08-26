@@ -18,6 +18,12 @@ namespace linc {
         extern Dynamic load(char const *filename, int req_comp);
         extern Dynamic load_from_memory(Array<unsigned char> src_bytes, int src_length, int req_comp);
 
+        extern Dynamic loadf(char const *filename, int req_comp);
+        extern Dynamic loadf_from_memory(Array<unsigned char> src_bytes, int src_length, int req_comp);
+
+        extern bool is_hdr(char const *filename);
+        extern bool is_hdr_from_memory(Array<unsigned char> src_bytes, int src_length);
+
     } //stb_image namespace
 
 } //linc
